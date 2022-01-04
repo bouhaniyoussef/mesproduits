@@ -1,0 +1,75 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+
+      <!-- Logo -->
+      <a class="navbar-brand logoName1" routerLink="/home"
+        ><img
+          id="effetLogo"
+          src="/assets/images/logos/logo.png"
+          height="50"
+          alt="logo Accesoire"
+        />
+        &nbsp; &nbsp; mes•<span class="logoName2">produits</span>
+      </a>
+
+     
+      <!-- Toggler -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarResponsive"
+        aria-controls="navbarResponsive"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Menu / Items -->
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item" routerLinkActive="active" >
+            <a class="nav-link" routerLink="/home" >Accueil</a>
+          </li>
+          <!-- Menu / dropdown Produits tendances -->
+          <!--
+          <li class="nav-item dropdown" routerLinkActive="active">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown01"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+              >Tendance
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" routerLink="#">Hp Pavillon 15</a>
+              <a class="dropdown-item" routerLink="#">Dell XPS 15 9500</a>
+              <a class="dropdown-item" routerLink="#">Razer Blade Stealth 13</a>
+            </div>
+          </li>
+          -->
+          <!-- Fin Menu / dropdowns -->
+          <li class="nav-item" routerLinkActive="active" *ngIf="_authenticationService.isAuthenticated">
+            <a class="nav-link" routerLink="/products">Produit</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="_authenticationService.isAuthenticated">
+            <a class="nav-link" routerLink="/edit-products">Gérer produit</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="_authenticationService.isNotAuthenticated">
+            <a class="nav-link" routerLink="/login">Se Connecter</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="_authenticationService.isNotAuthenticated">
+            <a class="nav-link" routerLink="/register">S'inscrire</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="_authenticationService.isAuthenticated">
+            <a class="nav-link" routerLink="/cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Acheter</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto"*ngIf="_authenticationService.isAuthenticated">
+          <li class="nav-item pointer">
+            <a class="nav-link" routerLink="/login" (click)="logout()">Quitter</a>
+          </li>
+      </ul>
+      </div>
+    </div>
+  </nav>
+</header>

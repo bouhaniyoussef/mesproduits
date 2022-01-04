@@ -1,0 +1,178 @@
+<app-full-picture-heading></app-full-picture-heading>
+
+<div class="navbar navbar-expand-lg navbar-light mb-5" style="background-color: #ccc"></div>
+
+<!-- Page Content -->
+<div class="container">
+  <h2>Liste des produits disponibles</h2>
+  <div class="row mt-4 table-responsive">
+    <!-- Liste Produits -->
+    <table class="table table-bordered table-striped table-sm">
+      <caption>Liste des produits disponibles jusqu'à Mars 2021</caption>
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">marque</th>
+          <th scope="col">Catégorie</th>
+
+
+          <th scope="col"> Prix (<i class="fa fa-eur" aria-hidden="true"></i>) </th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let laptop of laptopsList">
+          <th scope="row">{{ laptop.id }}</th>
+
+          <td>{{ laptop.category }}</td>
+
+          *
+          <td>{{ laptop.price }}</td>
+          <td class="d-flex flex-row justify-content-around">
+            <button type="button" class="btn btn-warning btn-sm mr-1" (click)="showEditLaptopForm(laptop)">
+              Editer
+            </button>
+            <button type="button" class="btn btn-danger btn-sm ml-1" (click)="removeLaptop(laptop.id)">
+              Suppr.
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- Fin Liste Produits -->
+  </div>
+</div>
+<!-- /.container -->
+
+<!-- Bouton Ajouter Laptop -->
+<div class="container">
+  <div class="mt-4">
+    <button class="btn btn-primary" (click)="showAddLaptopForm()">
+      Ajouter un nouveau Laptop
+    </button>
+  </div>
+  <div class="mt-4">
+    <div class="mt-4">
+      <!-- Form Ajouter Laptop -->
+      <form *ngIf="laptopForm" (ngSubmit)="onSubmit(addForm)" #addForm="ngForm" novalidate>
+        <h2>Ajouter un nouveau produit</h2>
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="category">Catégorie</label>
+            <select class="form-control" id="category" name="category" [(ngModel)]="newLaptop.category" required
+              #category="ngModel" [class.is-invalid]="category.invalid && category.touched">
+              <option selected>Lunette</option>
+              <option>chemise</option>
+              <option>parfun</option>
+              <option>telephone</option>
+            </select>
+            <small class="text-danger">(*)</small>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="brand">Marque</label>
+            <input type="text" class="form-control" id="brand" name="brand" [(ngModel)]="newLaptop.brand" required
+              #brand="ngModel" [class.is-invalid]="brand.invalid && brand.touched" />
+            <small class="text-danger">(*)</small>
+          </div>
+
+
+
+
+          <div class="form-group col-md-3">
+            <label for="price">Prix (en euro)</label>
+            <input type="text" class="form-control" id="price" name="price" [(ngModel)]="newLaptop.price" required
+              #price="ngModel" [class.is-invalid]="price.invalid && price.touched" />
+            <small class="text-danger">(*)</small>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="urlImage">URL image</label>
+            <input type="text" class="form-control" id="urlImage" name="urlImage" [(ngModel)]="newLaptop.urlImage"
+              required #urlImage="ngModel" [class.is-invalid]="urlImage.invalid && urlImage.touched" />
+            <small class="text-danger">(*)</small>
+          </div>
+
+          <!-- <div class="form-group col-md-3">
+            <br/>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="promo" name="promo"
+                [(ngModel)]="newLaptop.promo">
+              <label class="form-check-label" for="promo">En Promotion</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="inStock" name="inStock"
+                [(ngModel)]="newLaptop.inStock">
+              <label class="form-check-label" for="inStock">En stock</label>
+            </div>
+          </div> -->
+
+        </div>
+        <div class="alert alert-danger" role="alert"
+          [class.d-none]="(category.valid || category.untouched) && (brand.valid || brand.untouched) && (model.valid || model.untouched) && (series.valid || series.untouched) && (cpuModel.valid || cpuModel.untouched) && (ramType.valid || ramType.untouched) && (hddType.valid || hddType.untouched) && (screenType.valid || screenType.untouched) && (price.valid || price.untouched) && (urlImage.valid || urlImage.untouched)">
+          * champs requis.
+        </div>
+        <div class="form-group">
+          <button type="button" class="btn btn-success mr-2" [disabled]="addForm.form.invalid"
+            (click)="saveLaptop(newLaptop)">
+            Valider
+          </button>
+          <button type="button" class="btn btn-warning" (click)="cancelNewLaptop()">
+            Annuler
+          </button>
+        </div>
+      </form>
+      <!-- Fin Form Ajouter Laptop -->
+
+      <!-- Form Mettre à jour Laptop -->
+      <form *ngIf="editLaptopForm" (ngSubmit)="onSubmit(updateForm)" #updateForm="ngForm" novalidate>
+        <h2>Modifier les données d'un produit</h2>
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="category">Catégorie</label>
+            <select class="form-control" id="category" name="category" [(ngModel)]="editedLaptop.category" required
+              #category="ngModel" [class.is-invalid]="category.invalid && category.touched">
+              <option>Lunette</option>
+              <option>chemise</option>
+              <option>parfun</option>
+              <option>telephone</option>
+            </select>
+            <small class="text-danger">(*)</small>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="brand">Marque</label>
+            <input type="text" class="form-control" id="brand" name="brand" [(ngModel)]="editedLaptop.brand" required
+              #brand="ngModel" [class.is-invalid]="brand.invalid && brand.touched" />
+            <small class="text-danger">(*)</small>
+          </div>
+
+          <div class="form-group col-md-3">
+            <label for="price">Prix (en euro)</label>
+            <input type="text" class="form-control" id="price" name="price" [(ngModel)]="editedLaptop.price" required
+              #price="ngModel" [class.is-invalid]="price.invalid && price.touched" />
+            <small class="text-danger">(*)</small>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="urlImage">URL image</label>
+            <input type="text" class="form-control" id="urlImage" name="urlImage" [(ngModel)]="editedLaptop.urlImage"
+              required #urlImage="ngModel" [class.is-invalid]="urlImage.invalid && urlImage.touched" />
+            <small class="text-danger">(*)</small>
+          </div>
+        </div>
+        <div class="alert alert-danger" role="alert"
+          [class.d-none]="(category.valid || category.untouched) && (brand.valid || brand.untouched) && (model.valid || model.untouched) && (series.valid || series.untouched) && (cpuModel.valid || cpuModel.untouched) && (ramType.valid || ramType.untouched) && (hddType.valid || hddType.untouched) && (screenType.valid || screenType.untouched) && (price.valid || price.untouched) && (urlImage.valid || urlImage.untouched)">
+          * champs requis.
+        </div>
+
+        <div class="form-group">
+          <button type="button" class="btn btn-success mr-2" [disabled]="updateForm.form.invalid"
+            (click)="updateLaptop(editedLaptop)"> Valider
+          </button>
+          <button type="button" class="btn btn-warning" (click)="cancelEdit()"> Annuler
+          </button>
+        </div>
+      </form>
+      <!-- Fin Form Mettre à jour Laptop -->
+    </div>
+  </div>
+</div>
+<!-- Fin Mise à jour laptop -->
+<!-- Fin Edition produits-->

@@ -1,0 +1,160 @@
+{
+  "users": [
+    {
+      "firstName": "Tarek",
+      "lastName": "Arif",
+      "email": "tarifwell@gmail.com",
+      "password": "1234",
+      "id": 1
+    },
+    {
+      "firstName": "Amir",
+      "lastName": "Chemakh",
+      "email": "kretzshmar05@gmail.com",
+      "password": "4444",
+      "id": 2
+    },
+    {
+      "firstName": "Chiheb",
+      "lastName": "Brahim",
+      "email": "chihebbeghil.91@gmail.com",
+      "password": "3333",
+      "id": 3
+    },
+    {
+      "firstName": "Eyette",
+      "lastName": "Khriss",
+      "email": "lprincesse@ymail.com",
+      "password": "5555",
+      "id": 4
+    },
+    {
+      "firstName": "Khalil",
+      "lastName": "Bouzid",
+      "email": "kbouziditn@gmail.com",
+      "password": "4444",
+      "id": 5
+    },
+    {
+      "firstName": "user",
+      "lastName": "user",
+      "email": "user@test.com",
+      "password": "test",
+      "id": 6
+    },
+    {
+      "firstName": "user2",
+      "email": "user2@test.com",
+      "password": "test",
+      "lastName": "user2",
+      "id": 7
+    },
+    {
+      "firstName": "imen",
+      "lastName": "imen",
+      "email": "imen@imen.com",
+      "password": "1234",
+      "id": 8
+    }
+  ],
+  "products": [
+    {
+      "id": 4,
+      "category": "lunette",
+      "brand": "Razer",
+      "marque": "Blade Stealth 13 GTX",
+      "rating": 4.5,
+      "inStock": true,
+      "promo": true,
+      "price": 1399.78,
+      "description": "Trouver le plaisir du jeu avec ce Luntte performant.",
+      "urlImage": "https://cdn1.visiofactory.com/90823-thickbox/dior-montaigne-noir-30montaigneminio-r21-1000-50-20-medium.jpg"
+    },
+    {
+      "id": 5,
+      "category": "lunette",
+      "marque": "Blade Stealth 13 GTX",
+      "inStock": true,
+      "promo": true,
+      "price": 1399.78,
+      "description": "Trouver le plaisir du jeu avec ce Luntte performant.",
+      "urlImage": "https://cdn1.visiofactory.com/90823-thickbox/dior-montaigne-noir-30montaigneminio-r21-1000-50-20-medium.jpg"
+    },
+    {
+      "id": 6,
+      "category": "lunette",
+      "brand": "Razer",
+      "marque": "Blade Stealth 13 GTX",
+      "rating": 4.5,
+      "inStock": true,
+      "promo": true,
+      "price": 1399.78,
+      "description": "Trouver le plaisir du jeu avec ce Luntte performant.",
+      "urlImage": "https://cdn1.visiofactory.com/90823-thickbox/dior-montaigne-noir-30montaigneminio-r21-1000-50-20-medium.jpg"
+    },
+    {
+      "id": 7,
+      "category": "lunette",
+      "brand": "Razer",
+      "marque": "Blade Stealth 13 GTX",
+      "rating": 4.5,
+      "inStock": true,
+      "promo": true,
+      "price": 1399.78,
+      "description": "Trouver le plaisir du jeu avec ce Luntte performant.",
+      "urlImage": "https://cdn1.visiofactory.com/90823-thickbox/dior-montaigne-noir-30montaigneminio-r21-1000-50-20-medium.jpg"
+    },
+    {
+      "id": 8,
+      "category": "lunette",
+      "brand": "Razer",
+      "marque": "Blade Stealth 13 GTX",
+      "rating": 4.5,
+      "inStock": true,
+      "promo": true,
+      "price": 1399.78,
+      "description": "Trouver le plaisir du jeu avec ce Luntte performant.",
+      "urlImage": "https://cdn1.visiofactory.com/90823-thickbox/dior-montaigne-noir-30montaigneminio-r21-1000-50-20-medium.jpg"
+    },
+    {
+      "id": 9,
+      "category": "lunette",
+      "marque": "Blade Stealth 13 GTX",
+      "inStock": true,
+      "promo": true,
+      "price": 1399.78,
+      "description": "Trouver le plaisir du jeu avec ce Luntte performant.",
+      "urlImage": "https://cdn1.visiofactory.com/90823-thickbox/dior-montaigne-noir-30montaigneminio-r21-1000-50-20-medium.jpg"
+    },
+    {
+      "id": 10,
+      "category": "lunette",
+      "brand": "Razer",
+      "marque": "Blade Stealth 13 GTX",
+      "rating": 4.5,
+      "inStock": true,
+      "promo": true,
+      "price": 1399.78,
+      "description": "Trouver le plaisir du jeu avec ce Luntte performant.",
+      "urlImage": "https://cdn1.visiofactory.com/90823-thickbox/dior-montaigne-noir-30montaigneminio-r21-1000-50-20-medium.jpg"
+    },
+    {
+      "id": 11,
+      "category": "lunette",
+      "brand": "Razer",
+      "marque": "Blade Stealth 13 GTX",
+      "rating": 4.5,
+      "inStock": true,
+      "promo": true,
+      "price": 1399.78,
+      "description": "Trouver le plaisir du jeu avec ce Luntte performant.",
+      "urlImage": "https://cdn1.visiofactory.com/90823-thickbox/dior-montaigne-noir-30montaigneminio-r21-1000-50-20-medium.jpg"
+    }
+  ],
+  "authenticatedUser": [
+    {
+      "id": 0,
+      "authorized": false
+    }
+  ]
+}
